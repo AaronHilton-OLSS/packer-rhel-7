@@ -26,7 +26,7 @@ You must have a Red Hat Subscription to download the Red Hat Enterprise Linux 7 
   - cd to the directory containing this README.md file,
   - Create `iso/` directory and move inside your Red Hat Enterprise Linux iso.
   - Edit rhel7.json file, check if `iso_urls` and `iso_checksum` match your RHEL iso.
-  - Create file secret.json, with your RHSM informations (where ansible_repos, is the repository where you can find ansible core),
+  - Create file secret.json, with your RHSM information. Put this in the same directory as rhel7.json
 ```
     {
       "rhsm_username": "XXXXXXXX",
