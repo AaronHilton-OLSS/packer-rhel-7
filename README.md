@@ -55,7 +55,7 @@ Also we want to register the VM to RHSM, so we do that with vagrant-registration
 
 File .vagrantplugins make sure those vagrant plugins are installed.
 
-### Let's roll !!!
+### Let's roll !!! <--I can't get this to work on Windows, see Let's roll 2
 
 There's an included Vagrantfile that allows quick testing of the built Vagrant boxes. From this same directory, run one of the following commands after building the boxes:
 ```
@@ -63,6 +63,16 @@ There's an included Vagrantfile that allows quick testing of the built Vagrant b
     $ eval $(./jsonenv < secret.json) vagrant up virtualbox --provider=virtualbox
 ```
 [jsonenv](jsonenv) is a small python script stolen from [Keith Rarick](https://gist.github.com/kr/6161118) which convert a json dictionary into environment variables.
+
+### Let's roll 2
+
+Run the following commands (this is for running on Windows):
+```
+    # Each of these are single line, hit enter after each one.  Make sure you are in the folder where the Vagranfile is located:
+    $ set "rhsm_username=<ENTER YOUR RedHat Developer USERNAME>"
+    $ set "rhsm_password=<ENTER YOUR RedHat Developer PASSWORD>"
+    $ vagrant up
+```
 
 ## License
 
