@@ -1,16 +1,14 @@
-# Packer Example - Red Hat Enterprise Linux 7 Vagrant Box using Ansible provisioner
+# Packer Example - Red Hat Enterprise Linux 7 Vagrant Box
 
-This example build configuration installs and configures RHEL 7 x86_64 using Ansible, and then generates two Vagrant box files, for:
+This example build configuration installs and configures RHEL 7 x86_64, and then generates a Vagrant box file, for:
 
   - VirtualBox
-  - VMware
 
 The example can be modified to use more Ansible roles, plays, and included playbooks to fully configure (or partially) configure a box file suitable for deployment for development environments.
 
 ## Paternity
 
-This repo is a shamelessly fork from [Jeff Geerling](https://github.com/geerlingguy/packer-centos-7), modified to create a Red Hat Enterprise Linux Vagrant Box.
-So all gratitude should go to him, and all criticism to myself.
+This repo is a shamelessly fork from [Tinsjourney](https://github.com/tinsjourney/packer-rhel-7), modified to create a Red Hat Enterprise Linux Vagrant Box with some simplifaction.
 
 ## Requirements
 
@@ -34,9 +32,7 @@ You must have a Red Hat Subscription to download the Red Hat Enterprise Linux 7 
 ```
     {
       "rhsm_username": "XXXXXXXX",
-      "rhsm_password" : "XXXXXXXX",
-      "rhsm_pool" : "XXXXXXXX",
-      "ansible_repos" : "XXXXXXXX-rpms"
+      "rhsm_password" : "XXXXXXXX"
     }
 ```
 - Finally run:
@@ -45,12 +41,6 @@ You must have a Red Hat Subscription to download the Red Hat Enterprise Linux 7 
 ```
 After a few minutes, Packer should tell you the box was generated successfully.
 
-If you want to only build a box for one of the supported virtualization platforms (e.g. only build the VMware box), add `--only=vmware-iso` to the `packer build` command:
-```
-    $ packer build --only=vmware-iso --var-file=secret.json rhel7.json
-
-    $ packer build --only=virtualbox-iso --var-file=secret.json rhel7.json
-```
 ## Testing built boxes
 
 ###  Prerequisite
@@ -70,16 +60,10 @@ File .vagrantplugins make sure those vagrant plugins are installed.
 
 There's an included Vagrantfile that allows quick testing of the built Vagrant boxes. From this same directory, run one of the following commands after building the boxes:
 ```
-    # For VMware Fusion:
-    $ eval $(./jsonenv < secret.json) vagrant up vmware --provider=vmware_fusion
-
     # For VirtualBox:
     $ eval $(./jsonenv < secret.json) vagrant up virtualbox --provider=virtualbox
 ```
 [jsonenv](jsonenv) is a small python script stolen from [Keith Rarick](https://gist.github.com/kr/6161118) which convert a json dictionary into environment variables.
-
-## TODO
-  - Add registration to Satellite.
 
 ## License
 
@@ -89,3 +73,4 @@ MIT license.
 
 Created in 2014 by [Jeff Geerling](http://jeffgeerling.com/), author of [Ansible for DevOps](http://ansiblefordevops.com/).
 Modified in 2017 by [Tinsjourney](https://www.gnali.org/)
+Modified in 2020 by [AaronHilton-OLSS](http://www.olsssystems.com/)
