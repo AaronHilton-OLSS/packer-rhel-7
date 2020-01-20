@@ -24,8 +24,6 @@ Vagrant.configure("2") do |config|
       config.registration.manager = 'subscription_manager'
       config.registration.name = virtualbox.vm.hostname
       config.registration.username = ENV['rhsm_username']
-      config.registration.password = ENV['rhsm_password']
-      config.registration.pools = ENV['rhsm_pool']
     end
 
     config.vm.provision "shell", inline: "echo Hello, World"
