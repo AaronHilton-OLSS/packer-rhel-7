@@ -65,9 +65,6 @@ There's an included Vagrantfile that allows quick testing of the built Vagrant b
 ```
 [jsonenv](jsonenv) is a small python script stolen from [Keith Rarick](https://gist.github.com/kr/6161118) which convert a json dictionary into environment variables.
 
-## TODO
-  - Add registration to Satellite.
-
 ## License
 
 MIT license.
