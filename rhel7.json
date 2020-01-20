@@ -10,10 +10,10 @@
             "guest_os_type": "RedHat_64",
             "headless": true,
             "http_directory": "http",
-            "iso_checksum": "120acbca7b3d55465eb9f8ef53ad7365f2997d42d4f83d7cc285bf5c71e1131f",
+            "iso_checksum": "88b42e934c24af65e78e09f0993e4dded128d74ec0af30b89b3cdc02ec48f028",
             "iso_checksum_type": "sha256",
             "iso_urls": [
-                "iso/rhel-server-7.6-x86_64-dvd.iso"
+                "iso/rhel-server-7.7-x86_64-dvd.iso"
             ],
             "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
             "ssh_password": "vagrant",
@@ -37,34 +37,6 @@
             ],
             "virtualbox_version_file": ".vbox_version",
             "vm_name": "packer-rhel-7-x86_64"
-        },
-        {
-            "boot_command": [
-                "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
-            ],
-            "boot_wait": "10s",
-            "disk_size": 81920,
-            "guest_os_type": "rhel7-64",
-            "headless": true,
-            "http_directory": "http",
-            "iso_checksum": "60a0be5aeed1f08f2bb7599a578c89ec134b4016cd62a8604b29f15d543a469c",
-            "iso_checksum_type": "sha256",
-            "iso_urls": [
-                "iso/rhel-server-7.3-x86_64-dvd.iso"
-            ],
-            "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
-            "ssh_password": "vagrant",
-            "ssh_port": 22,
-            "ssh_username": "vagrant",
-            "ssh_wait_timeout": "10000s",
-            "tools_upload_flavor": "linux",
-            "type": "vmware-iso",
-            "vm_name": "packer-rhel-7-x86_64",
-            "vmx_data": {
-                "cpuid.coresPerSocket": "1",
-                "memsize": "512",
-                "numvcpus": "2"
-            }
         }
     ],
     "post-processors": [
@@ -78,17 +50,11 @@
             "environment_vars": [
                 "RHSM_USERNAME={{user `rhsm_username`}}",
                 "RHSM_PASSWORD={{user `rhsm_password`}}",
-                "RHSM_POOL={{user `rhsm_pool`}}",
-                "ANSIBLE_REPOS={{user `ansible_repos`}}"
+                "RHSM_POOL={{user `rhsm_pool`}}"
             ],
             "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
             "script": "scripts/ansible.sh",
             "type": "shell"
-        },
-        {
-            "galaxy_file": "requirements.yml",
-            "playbook_file": "ansible/main.yml",
-            "type": "ansible-local"
         },
         {
             "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",

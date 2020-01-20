@@ -2,9 +2,9 @@
 
 # Configure repos
 subscription-manager register --username=${RHSM_USERNAME} --password=${RHSM_PASSWORD} --name=packer-rhel7-$(date +%Y%m%d)-${RANDOM}
-subscription-manager attach --pool=${RHSM_POOL}
+subscription-manager attach --auto
 subscription-manager repos --disable=*
-subscription-manager repos --enable=${ANSIBLE_REPOS} --enable=rhel-7-server-rpms
+subscription-manager repos --enable=rhel-7-server-ansible-2.9-rpms --enable=rhel-7-server-rpms
 
 # Update to last patches
 yum -y update --setopt tsflags=nodocs
