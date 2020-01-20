@@ -60,9 +60,6 @@ File .vagrantplugins make sure those vagrant plugins are installed.
 
 There's an included Vagrantfile that allows quick testing of the built Vagrant boxes. From this same directory, run one of the following commands after building the boxes:
 ```
-    # For VMware Fusion:
-    $ eval $(./jsonenv < secret.json) vagrant up vmware --provider=vmware_fusion
-
     # For VirtualBox:
     $ eval $(./jsonenv < secret.json) vagrant up virtualbox --provider=virtualbox
 ```
