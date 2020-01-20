@@ -17,7 +17,6 @@ The following software must be installed/present on your local machine before yo
   - [Packer](http://www.packer.io/)
   - [Vagrant](http://vagrantup.com/)
   - [VirtualBox](https://www.virtualbox.org/)
-  - [Ansible](http://docs.ansible.com/intro_installation.html)
 
 You must have a Red Hat Subscription to download the Red Hat Enterprise Linux 7 iso. If you don't, [create an account](https://developers.redhat.com) and accept the terms and conditions of the Red Hat Developer Program, which provides no-cost subscriptions for development use only.
 
